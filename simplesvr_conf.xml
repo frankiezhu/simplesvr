@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<port>6668</port>
+	<worker_num>4</worker_num>
+	<keep_alive>300</keep_alive>
+	<asure_count>3</asure_count>
+	<lifetime>600</lifetime>
+</document>
