@@ -14,6 +14,7 @@
 #include <sys/resource.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <sstream>
 
 #include "log.h"
 #include "config.h"
@@ -178,19 +179,17 @@ static int mkdirs()
         return -1;
     }
 
-    string cmd("cd ");
-    cmd.append(FILE_MSG_DIR);
-    cmd.append(" && mkdir -p ");
+    stringstream ss;
+    ss<<"mkdir -p "<<FILE_MSG_DIR<<" && cd "<<FILE_MSG_DIR <<" && mkdir -p ";
     for (int i = 0; i < MSG_MAX; i++)
     {
-        cmd.append(g_msg_file_name[i]);
-        cmd.append(" ");
+        ss<<g_msg_file_name[i]<<" ";
     }
 
-    int rc = system(cmd.c_str());
+    int rc = system(ss.str().c_str());
     if (rc != 0)
     {
-        logerr("system cmd:%s failed!\n", cmd.c_str());
+        logerr("system cmd:%s failed!\n", ss.str().c_str());
         return -1;
     }
     return 0;

@@ -104,7 +104,6 @@ int Session::read_head()
 
     logdbg("ip:%s msg type:%d, len:%d, pid:%d\n",
            get_string_ip().c_str(), tmp.msg_type, tmp.length, g_pid);
-    m_machine_type = (machine_type_t)tmp.machine;
     m_msg_type = (msg_type_t)tmp.msg_type;
     m_msg_len = tmp.length;
     return 0;

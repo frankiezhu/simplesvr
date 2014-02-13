@@ -117,7 +117,6 @@ protected:
     int m_msg_len;
     bool m_has_head;
     msg_type_t m_msg_type;
-    machine_type_t m_machine_type;
     int64_t m_life_span;
 };
 
